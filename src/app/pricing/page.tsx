@@ -70,15 +70,16 @@ export default function PricingPage() {
         </div>
       </main>
 
-      <footer className="bg-primary text-primary-foreground py-8 mt-12">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex justify-center space-x-4 mb-4">
-            <NavLink href="/pricing">Pricing</NavLink>
-            <NavLink href="/features">Features</NavLink>
-            <NavLink href="/support">Support</NavLink>
-          </div>
-          <p>&copy; 2023 Nexatunes. All rights reserved.</p>
-        </div>
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+        <p className="text-xs text-gray-500 dark:text-gray-400">© 2024 Nexatunes. All rights reserved.</p>
+        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+          <a className="text-xs hover:underline underline-offset-4" target='_blank' href="https://www.gardencactusrecords.com/imprint">
+            Imprint
+          </a>
+          <a className="text-xs hover:underline underline-offset-4" href="#">
+            Privacy Policy
+          </a>
+        </nav>
       </footer>
     </div>
   )
