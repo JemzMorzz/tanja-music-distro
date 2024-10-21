@@ -17,11 +17,11 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-2">Quick Links</h3>
             <nav className="flex flex-col space-y-2">
+              <Link href="/distribution" className="text-sm hover:text-primary transition-colors">
+                Distribution
+              </Link>
               <Link href="/pricing" className="text-sm hover:text-primary transition-colors">
                 Pricing
-              </Link>
-              <Link href="/features" className="text-sm hover:text-primary transition-colors">
-                Features
               </Link>
               <Link href="/support" className="text-sm hover:text-primary transition-colors">
                 Support

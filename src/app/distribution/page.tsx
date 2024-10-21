@@ -1,23 +1,42 @@
-import { FC } from 'react'
+'use client'
+
+import { FC, useState, useEffect } from 'react'
 import { Music, Settings, FileText, DollarSign, HeadphonesIcon, Youtube, Shield, CheckCircle, Disc, Radio, Film, Percent } from 'lucide-react'
 
 interface FeatureProps {
   icon: React.ReactNode
   title: string
   description: string
+  index: number
 }
 
-const Feature: FC<FeatureProps> = ({ icon, title, description }) => (
-  <div className="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-sm transition-all duration-300 hover:shadow-md">
-    <div className="flex-shrink-0 text-primary">
-      {icon}
+const Feature: FC<FeatureProps> = ({ icon, title, description, index }) => {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, index * 100) // Stagger the animation
+
+    return () => clearTimeout(timer)
+  }, [index])
+
+  return (
+    <div
+      className={`flex items-start space-x-4 p-6 border border-gray-300 bg-white rounded-lg shadow-sm transition-all duration-500 hover:shadow-md transform hover:-translate-y-1 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      }`}
+    >
+      <div className="flex-shrink-0 text-primary">
+        {icon}
+      </div>
+      <div>
+        <h3 className="text-lg font-semibold mb-2">{title}</h3>
+        <p className="text-muted-foreground text-sm">{description}</p>
+      </div>
     </div>
-    <div>
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-muted-foreground text-sm">{description}</p>
-    </div>
-  </div>
-)
+  )
+}
 
 const DistributionPage: FC = () => {
   const features = [
@@ -84,10 +103,10 @@ const DistributionPage: FC = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-center mb-4">Distribution Features</h1>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+    <div className="min-h-screen bg-white from-gray-50 to-gray-100">
+      <section className="container mx-auto px-4 py-16">
+        <h1 className="text-4xl font-bold text-center mb-4 animate-fade-in-down">Distribution Features</h1>
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up">
           Empower your music career with our comprehensive suite of distribution services and tools.
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -97,10 +116,11 @@ const DistributionPage: FC = () => {
               icon={feature.icon}
               title={feature.title}
               description={feature.description}
+              index={index}
             />
           ))}
         </div>
-      </main>
+      </section>
     </div>
   )
 }

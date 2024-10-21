@@ -1,7 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { CheckIcon } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import ContactForm from '@/components/ContactForm'
 
 export default function PricingPage() {
   const [isYearly, setIsYearly] = useState(false)
@@ -82,6 +83,7 @@ export default function PricingPage() {
               ctaText={plan.ctaText}
               ctaLink={plan.ctaLink}
               highlighted={plan.highlighted}
+              index={index}
             />
           ))}
         </div>
@@ -98,13 +100,25 @@ type PricingCardProps = {
   ctaText: string
   ctaLink: string
   highlighted?: boolean
+  index: number;
 }
 
-function PricingCard({ title, price, period, features, ctaText, ctaLink, highlighted = false }: PricingCardProps) {
+function PricingCard({ title, price, period, features, ctaText, ctaLink, highlighted = false, index }: PricingCardProps) {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, index * 100) // Stagger the animation
+
+    return () => clearTimeout(timer)
+  }, [index])
   return (
     <div
-      className={`flex flex-col rounded-lg p-6 h-full shadow-sm ${
-        highlighted ? 'bg-zinc-900 text-white shadow-lg' : 'bg-white border border-muted'
+      className={`flex flex-col transition-all duration-500 rounded-lg p-6 h-full shadow-md ${
+        highlighted ? 'bg-zinc-900 text-white shadow-lg' : 'bg-white border border-gray-300 border-muted'
+      } ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
       <div className="flex-grow">

@@ -108,7 +108,7 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ quote, author }: TestimonialCardProps) {
   return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+    <div className="bg-muted p-6 rounded-lg shadow-md">
       <p className="italic mb-4">"{quote}"</p>
       <p className="font-semibold text-right">- {author}</p>
     </div>
