@@ -3,8 +3,8 @@ import ContactForm from "@/components/ContactForm"
 
 const GetInTouchPage = () => {
     return (
-        <main className="">
-            <section className="w-full bg-black py-20">
+        <main className="bg-white">
+            <section className="w-full py-20">
             <ContactForm/>
             </section>
         </main>
