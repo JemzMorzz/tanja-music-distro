@@ -24,7 +24,7 @@ export default function Footer() {
                 Pricing
               </Link>
               <Link href="/support" className="text-sm hover:text-primary transition-colors">
-                Support
+                FAQ
               </Link>
             </nav>
           </div>
@@ -44,7 +44,7 @@ export default function Footer() {
             <a href="https://www.gardencactusrecords.com/imprint" target='_blank' className="text-xs hover:text-primary transition-colors">
               Imprint
             </a>
-            <Link href="/privacy-policy" className="text-xs hover:text-primary transition-colors">
+            <Link target='_blank' href="https://flowery-makeup-ff7.notion.site/Impressum-und-Datenschutzerkl-rung-12fce7f8c81580e692f2e7fddb4f23da" className="text-xs hover:text-primary transition-colors">
               Privacy Policy
             </Link>
           </nav>

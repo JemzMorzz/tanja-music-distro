@@ -97,8 +97,8 @@ const DistributionPage: FC = () => {
     },
     {
       icon: <Percent size={24} />,
-      title: "100% Revenue Keep",
-      description: "Keep 100% of your royalties with our fee-free distribution service, maximizing your earnings."
+      title: "No Fees, Just Results",
+      description: "Unlike many others, we don’t charge a fee for distribution. Instead, we simply take a share of the revenue you generate through us. That’s why we’re committed to helping you boost your sales – because we only succeed when you do."
     }
   ]
 

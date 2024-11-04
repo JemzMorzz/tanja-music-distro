@@ -25,8 +25,8 @@ export default function Header() {
       <nav className="hidden md:flex items-center space-x-8">
         <NavLink href="/distribution">Distribution</NavLink>
         <NavLink href="/pricing">Pricing</NavLink>
-        <NavLink href="/support">Support</NavLink>
-        <NavLink href="/news">News</NavLink>
+        <NavLink href="/support">FAQ</NavLink>
+        {/* <NavLink href="/news">News</NavLink> */}
         <a>|</a>
         <Link href="/get-in-touch" className="rounded-full border border-black py-1.5 px-3.5 hover:bg-black hover:text-white">Get In Touch</Link>
         <Link
